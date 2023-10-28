@@ -1,8 +1,9 @@
-"use client"
+'use client'
 import {useEffect} from "react";
 
 export default function error({error, reset}){
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         console.log(error);
     }, [error]);
