@@ -9,7 +9,7 @@ export default async function Catalog({searchParams, params}){
     const res = await fetch(
         `https://api.themoviedb.org/3/${
             genre === "fetchTopRated" ? "movie/top_rated" : "trending/all/week"
-        }?api_key=${API_KEY}&language=en-US&page=${params?.id}`,
+        }?api_key=${API_KEY}&language=en-US&page=1`,
         { next: { revalidate: 10000 } }
     );
 
@@ -25,6 +25,7 @@ export default async function Catalog({searchParams, params}){
 
     return (
         <div>
+            <Test params={params}></Test>
             <Results results={results}></Results>
             <Test params={params}></Test>
         </div>
