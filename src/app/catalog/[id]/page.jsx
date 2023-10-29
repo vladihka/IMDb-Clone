@@ -5,11 +5,12 @@ const API_KEY = process.env.API_KEY;
 export default async function Catalog({searchParams, params}){
 
     const genre = searchParams.genre || "fetchTrending";
+    const id = params.id || 1;
 
     const res = await fetch(
         `https://api.themoviedb.org/3/${
             genre === "fetchTopRated" ? "movie/top_rated" : "trending/all/week"
-        }?api_key=${API_KEY}&language=en-US&page=1`,
+        }?api_key=${API_KEY}&language=en-US&page=${id}`,
         { next: { revalidate: 10000 } }
     );
 
