@@ -6,12 +6,10 @@ export default async function Catalog({searchParams, params}){
 
     const genre = searchParams.genre || "fetchTrending";
 
-    let count = 1;
-
     const res = await fetch(
         `https://api.themoviedb.org/3/${
             genre === "fetchTopRated" ? "movie/top_rated" : "trending/all/week"
-        }?api_key=${API_KEY}&language=en-US&page=${params.id}`,
+        }?api_key=${API_KEY}&language=en-US&page=${params?.id}`,
         { next: { revalidate: 10000 } }
     );
 
