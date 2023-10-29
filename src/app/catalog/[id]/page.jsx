@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Results from "@/components/Results";
 import Test from "@/components/Test";
 
